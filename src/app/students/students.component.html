@@ -1,0 +1,56 @@
+<ul class="heroes">
+    <li *ngFor="let group of groups"
+     (click)="onSelect(group)"
+     [class.selected]="hero === selectedHero"
+     >
+        <div>
+            <button class="delete" title="delete group" (click)="delete(group.Group_ID)">delete</button>
+            <div><span>Groups_ID: </span>{{group.Group_ID}}</div>
+            <div><span>Groups_Number: </span>{{group.Group_Number}}</div>
+            <div><span>Department_ID: </span>{{group.Department_ID}}</div>
+            <div><span>Year_Of_Create: </span>{{group.Year_Of_Create}}</div>
+        </div>
+    </li>
+</ul>
+<app-groups-detail [selectedGroup]="selectedGroup"></app-groups-detail>
+
+<button (click)="save()">save</button>
+<div>
+    <label>Group
+      <input #GroupNumber />
+      <input #DepartmentNumber />
+      <input #GroupYear />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(GroupNumber.value,DepartmentNumber.value,GroupYear.value);
+     GroupNumber.value=''">
+      add
+    </button>
+  </div>
+
+<!-- 
+<div>
+    <div><span>Groups_ID: </span>{{group.Groups_ID}}</div>
+    <div><span>Groups_Number: </span>{{group.Groups_Number}}</div>
+    <div><span>Department_ID: </span>{{group.Department_ID}}</div>
+    <div><span>Year_Of_Create: </span>{{group.Year_Of_Create}}</div>
+</div>
+<p></p>
+<div>
+    <div>
+        <label for="Groups_ID">group.Groups_ID: </label>
+        <input id="Groups_ID" [(ngModel)]="group.Groups_ID" placeholder="group.Groups_ID">
+    </div>    
+    <div>
+        <label for="Groups_Number">Groups_Number: </label>
+        <input id="Groups_Number" [(ngModel)]="group.Groups_Number" placeholder="group.Groups_Number">
+    </div>    
+    <div>
+        <label for="Department_ID">Department_ID: </label>
+        <input id="Department_ID" [(ngModel)]="group.Department_ID" placeholder="group.Department_ID">
+    </div>    
+    <div>
+        <label for="Year_Of_Create">Year_Of_Create: </label>
+        <input id="Year_Of_Create" [(ngModel)]="group.Year_Of_Create" placeholder="group.Year_Of_Create">
+    </div>    
+</div> -->
